@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: windows-latest
     env:
-      BUILD_INSTALLER: ${{ true }}
+      BUILD_INSTALLER: ${{ 'false' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

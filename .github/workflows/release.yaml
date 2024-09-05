@@ -1,0 +1,31 @@
+name: release-comditional-test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      BUILD_INSTALLER: ${{ false }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # - name: Install dotnet
+      #   if: ${{ env.BUILD_INSTALLER }}
+      #   uses: actions/setup-dotnet@v3
+      #   with:
+      #     global-json-file: build/windows/installer/global.json
+      - name: Echo test 1 without condition
+        run: echo "Test 1"
+      - name: Echo test 2 with condition
+        if: ${{ env.BUILD_INSTALLER }}
+        run: echo "Test 2"
+      - name: Echo test 3 without condition
+        run: echo "Test 3"
+      - name: Echo test 4 with condition
+        if: ${{ env.BUILD_INSTALLER }}
+        run: echo "Test 4"

@@ -1,4 +1,4 @@
-name: release-comditional-test
+name: release-conditional-test
 
 on:
   workflow_dispatch:
